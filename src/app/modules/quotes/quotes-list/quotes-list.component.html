@@ -1,0 +1,24 @@
+<div class="animated fadeIn">
+    <div class="row">
+ 
+      <!-- {{quotes|json}} -->
+
+        <div class="col-md-4" *ngFor="let quote of quotes" >
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">{{quote.subject}}</strong>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p><i class="fa fa-clock-o"></i> {{quote.createdtime}}</p>
+                  <button type="button" class="btn btn-outline-primary">Read More</button>
+                </div>
+                
+            </div>
+        </div>
+
+        
+
+
+    </div><!-- .row -->
+</div><!-- .animated -->

@@ -13,6 +13,8 @@ import { ProductsModule } from './modules/products/products.module';
 import { LoginComponent } from './basic-components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginUserGuard } from './guards/login-user.guard';
+import { RegisterComponent } from './basic-components/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { LoginUserGuard } from './guards/login-user.guard';
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule, 
     FormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [AuthGuard,LoginUserGuard],

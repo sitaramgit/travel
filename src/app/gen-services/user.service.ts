@@ -5,5 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
+  
   constructor() { }
+
+  public serverUrl = "http://173.255.216.217/travelcrm/angularportal/travel.php";
 }
