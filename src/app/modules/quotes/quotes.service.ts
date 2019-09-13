@@ -11,12 +11,13 @@ export class QuotesService {
   constructor(private http:HttpClient, private useSer:UserService) { }
 
   getQuoteList(){
-    let body ={
-      module : "Quotes",
-      view : "list"
-    }
-    return this.http.post(this.useSer.serverUrl,'body');
-    // return this.useSer.serverUrl;
+    let body = {  module : "Quotes",view : "list" , id:this.useSer.currentUser.id};
+    return this.http.post(this.useSer.serverUrl,body); 
+  }
+
+  getQuoteDetail(id){
+    let body = {  module : "Quotes",view : "detail", record : id };
+    return this.http.post(this.useSer.serverUrl,body); 
   }
 
 

@@ -40,6 +40,14 @@
                     </a>
                 </div>
                 <div class="login-form">
+                        <div *ngIf="errMsg" class="sufee-alert alert with-close alert-danger alert-dismissible fade show"> 
+                                {{errMsg}} 
+                        </div> 
+
+                        <div *ngIf="regStatus" class="alert alert-success" role="alert">
+                                successfully your <b>Registration</b> created. for Login details Check your Mail inbox
+                        </div>
+
                     <form #loginFrm="ngForm" (ngSubmit)="loginFrm.valid && loginUser(loginFrm)" novalidate>
                          <div class="form-group">
                             <label>Welcome Back</label>

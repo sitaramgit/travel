@@ -16,7 +16,7 @@ export class QuotesListComponent implements OnInit {
 
   quoteList(){
     this.quoSer.getQuoteList().subscribe(
-      data => this.quoteUnique(data),
+      data => this.quotes = data[0].item,
       err => console.log(err)
     )
   }

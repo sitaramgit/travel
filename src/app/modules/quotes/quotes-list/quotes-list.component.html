@@ -9,9 +9,9 @@
                     <strong class="card-title">{{quote.subject}}</strong>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">{{quote.description | slice:0:100}}</p>
                   <p><i class="fa fa-clock-o"></i> {{quote.createdtime}}</p>
-                  <button type="button" class="btn btn-outline-primary">Read More</button>
+                  <a routerLink="detail/{{quote.record}}" class="btn btn-outline-primary">Read More</a>
                 </div>
                 
             </div>

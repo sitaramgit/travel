@@ -1,0 +1,49 @@
+ 
+
+<div class="animated fadeIn">
+
+    <div class="ui-typography">
+        <div class="row">
+            <div class="col-md-4"> 
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title" v-if="headerText">
+                            <i class="fa fa-money"></i>
+                          Image</strong>
+                    </div>
+  
+                    <div class="card-body"> 
+                          <img src="http://173.255.216.217/travelcrm/public.php?fid=6&key=india.jpg">
+                          <br>
+                          <br>
+                          <button type="button" class="btn btn-info ">Book Now</button>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="col-md-8"> 
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title" v-if="headerText">
+                            <i class="fa fa-money"></i>
+                          Packages Details</strong>
+                    </div>
+  
+                    <div class="card-body"> 
+                          <h4><b>{{product.productname}}</b></h4>
+                          <p><b>Availble : </b>{{product.qtyinstock}}</p>
+                          <p><b>Price : </b>{{product.unit_price}}</p>
+                          <p><b>Description : </b>{{product.description}}</p>
+                          
+                       
+                    </div>
+                </div> 
+            </div>
+
+
+            </div>
+            </div>
+  
+  
+  
+              </div><!-- .animated -->
