@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
+import { UserService } from 'src/app/gen-services/user.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,7 +11,8 @@ import { ProductService } from '../product.service';
 export class ProductDetailComponent implements OnInit {
 
   public product:any;
-  constructor(private actRoute:ActivatedRoute, public proSer:ProductService) { }
+  public loder:boolean = true;
+  constructor(private actRoute:ActivatedRoute, public proSer:ProductService, public usrSer:UserService) { }
 
   ngOnInit() {
     this.actRoute.params.subscribe(
@@ -21,8 +23,12 @@ export class ProductDetailComponent implements OnInit {
 
   productDetail(id){
     this.proSer.getProductDetail(id).subscribe(
-      data => this.product = data[0].Products,
-      err => console.log(err)
+      data => { 
+        this.product = data[0].Products;
+        this.product['record'] = id;
+      },
+      err => console.log(err),
+      () => this.loder= false
     )
   }
 

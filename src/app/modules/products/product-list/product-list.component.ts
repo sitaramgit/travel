@@ -11,17 +11,19 @@ export class ProductListComponent implements OnInit {
 
   constructor(private proSer:ProductService,public usSer:UserService) { }
   public products:any = false;
+  public loder:boolean = true;
   ngOnInit() {
-    this.priducts();
+    this.allProducts();
   } 
-  priducts(){
+  allProducts(){
     this.proSer.getProducts().subscribe(
       data => {
         
         this.products = data[0].item;
         console.log(this.products)
       },
-      err => console.log(err)
+      err => console.log(err),
+      ()=>{ this.loder = false;}
     )
   }
 }

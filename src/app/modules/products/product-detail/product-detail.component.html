@@ -1,6 +1,9 @@
  
+<div *ngIf="loder" style="text-align: center; margin-top: 200px;margin-bottom: 200px;">
+    <div class="loader">Loading...</div>
+   </div>
 
-<div class="animated fadeIn">
+<div class="animated fadeIn" *ngIf="!loder">
 
     <div class="ui-typography">
         <div class="row">
@@ -13,10 +16,13 @@
                     </div>
   
                     <div class="card-body"> 
-                          <img src="http://173.255.216.217/travelcrm/public.php?fid=6&key=india.jpg">
+                          <img src="{{usrSer.path}}{{product.imagepath}}">
                           <br>
                           <br>
-                          <button type="button" class="btn btn-info ">Book Now</button>
+                          <!-- <button type="button" class="btn btn-info ">Book Now</button> -->
+                          <a routerLink="/products/book-now/{{product.record}}"
+                          [queryParams]="{ title: product.productname, price:product.unit_price, avaible: product.qtyinstock | number: '1.0-0' }"
+                           class="btn btn-info ">Book Now</a>
                     </div>
                 </div> 
             </div>
@@ -31,7 +37,7 @@
   
                     <div class="card-body"> 
                           <h4><b>{{product.productname}}</b></h4>
-                          <p><b>Availble : </b>{{product.qtyinstock}}</p>
+                          <p><b>Availble : </b>{{product.qtyinstock | number: '1.0-0'}}</p>
                           <p><b>Price : </b>{{product.unit_price}}</p>
                           <p><b>Description : </b>{{product.description}}</p>
                           

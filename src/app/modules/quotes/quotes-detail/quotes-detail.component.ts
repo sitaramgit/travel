@@ -11,6 +11,8 @@ export class QuotesDetailComponent implements OnInit {
 
   public quote:any;
   public products:any;
+  public loder:boolean = true; 
+  public finalcal:any;
   constructor(private actRoute:ActivatedRoute, private quoSer:QuotesService) { }
 
   ngOnInit() {
@@ -23,29 +25,23 @@ export class QuotesDetailComponent implements OnInit {
     this.quoSer.getQuoteDetail(id).subscribe(
       data=>{
         this.quote = data[0].Quotes;
-        let prod = data[0].Quotes.Products;
+        this.products = data[0].Quotes.Products.pro;
+        this.finalcal = data[0].Quotes.Products.finalcal;
         // console.log(this.products)
 
-        let arr = [];
-        for (let [key, value] of Object.entries(prod)) {
-          console.log(key)
-          if(key != "finalcal"){
-            arr.push(value);
-          }
+        // let arr = [];
+        // for (let [key, value] of Object.entries(prod)) {
+        //   console.log(key)
+        //   if(key != "finalcal"){
+        //     arr.push(value);
+        //   }
           
-      }
-      console.log(arr)
-
-      //   for (let pet of prod ) {
-      //     console.log(pet); // "species"
       // }
-      },
-
-
-       
-
-        
-      err => console.log(err)
+      console.log(data)
+ 
+      }, 
+      err => console.log(err),
+      ()=>this.loder = false
     )
   }
 

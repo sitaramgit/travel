@@ -1,4 +1,11 @@
-<div class="animated fadeIn">
+
+<div *ngIf="loder" style="text-align: center; margin-top: 200px;margin-bottom: 200px;">
+    <div class="loader">Loading...</div>
+</div>
+
+
+
+<div class="animated fadeIn" *ngIf="!loder">
 
   <div class="ui-typography">
       <div class="row">
@@ -42,18 +49,45 @@
                     <div class="clearfix"></div>
    
 
- 
+                   
+                        <div class="card-header">
+                            <strong class="card-title">Packages</strong>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                      <th scope="col">#</th>
+                                      <th scope="col">Tour</th>
+                                      <th scope="col">Price</th>
+                                      <th scope="col">Persons</th>
+                                      <th scope="col">Total</th> 
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let product of products; index as i">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{product.productName}}</td>
+                                    <td>{{product.listPrice}}</td>
+                                    <td>{{product.qty}}</td>
+                                    <td>{{product.netPrice}}</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+               
                     
                     
 
                     </div>
-                    </div>
+                </div>
 
 
-                    </div>
-                    </div>
-                    </div>
+            </div>
+        </div>
+    </div>
 
 
 
-            </div><!-- .animated -->
+</div><!-- .animated -->

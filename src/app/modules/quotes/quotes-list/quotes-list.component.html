@@ -1,8 +1,47 @@
-<div class="animated fadeIn">
-    <div class="row">
- 
-      <!-- {{quotes|json}} -->
+<div *ngIf="loder" style="text-align: center; margin-top: 200px;margin-bottom: 200px;">
+    <div class="loader">Loading...</div>
+   </div>
 
+
+   <div class="row" *ngIf="!quotes" style=" margin-top: 100px;margin-bottom: 200px;">
+       <div class="col-md-3"></div> 
+        <div class="col-md-6"> 
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">No Bookings</strong>
+                </div>
+                <div class="card-body"> 
+                    <div class="sufee-alert alert with-close alert-warning alert-dismissible fade show">
+                        <span class="badge badge-pill badge-warning">Hi</span>
+                         No Bookings availble on Your Account. 
+                    </div>  
+                </div>
+            </div> 
+        </div>
+      <div class="col-md-3"></div>
+   </div>
+
+
+
+<div class="animated fadeIn"  >
+    <div class="row" *ngIf="dataType"> 
+        <div class="col-md-4"  >
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">{{quotes.subject}}</strong>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{quotes.description | slice:0:100}}</p>
+                <p><i class="fa fa-clock-o"></i> {{quotes.createdtime}}</p>
+                <a routerLink="detail/{{quotes.record}}" class="btn btn-outline-primary">Read More</a>
+                </div>
+                
+            </div>
+        </div> 
+    </div><!-- .row -->
+
+    <div class="row" *ngIf="!dataType" > 
+        
         <div class="col-md-4" *ngFor="let quote of quotes" >
             <div class="card">
                 <div class="card-header">
@@ -15,10 +54,7 @@
                 </div>
                 
             </div>
-        </div>
-
-        
-
-
+        </div> 
     </div><!-- .row -->
+
 </div><!-- .animated -->

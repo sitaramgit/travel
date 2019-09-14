@@ -1,8 +1,11 @@
-<div class="animated fadeIn">
+
+<div *ngIf="loder" style="text-align: center; margin-top: 200px;margin-bottom: 200px;">
+ <div class="loader">Loading...</div>
+</div>
+
+<div class="animated fadeIn" *ngIf="!loder">
         <div class="row">
-     
-    
-    
+      
             <div class="col-md-4" *ngFor="let product of products">
                 <div class="card">
                     <img class="card-img-top" src="{{usSer.path}}{{product.imagepath}}" alt="Card image cap" style="height: 200px;">
@@ -15,13 +18,11 @@
                     <div class="card-body">
                     <a routerLink="detail/{{product.record}}" class="btn btn-outline-primary">Read More</a>
                      
-                      <button type="button" class="btn btn-info pull-right"><small>Form</small> ${{product.unit_price | number: '1.0-0'}}</button>
+                      <a routerLink="book-now/{{product.record}}"
+                      [queryParams]="{ title: product.name, avaible: product.qtyinstock | number: '1.0-0' }"
+                       class="btn btn-info pull-right"><small>Form</small> {{product.unit_price | number: '1.0-0'}}</a>
                   </div>
                 </div>
-            </div> 
-    
-            
-    
-    
+            </div>   
         </div><!-- .row -->
     </div><!-- .animated -->

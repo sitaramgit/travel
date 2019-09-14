@@ -9,15 +9,23 @@ import { QuotesService } from '../quotes.service';
 export class QuotesListComponent implements OnInit {
 
   constructor(private quoSer:QuotesService) { }
-  public quotes:any = false;   
+  public quotes:any = false; 
+  public loder:boolean = true; 
+  public emptyData:boolean = false; 
+  public dataType:any; 
   ngOnInit() {
     this.quoteList();
   }
 
   quoteList(){
     this.quoSer.getQuoteList().subscribe(
-      data => this.quotes = data[0].item,
-      err => console.log(err)
+      data => {
+        this.quotes = data[0].item; 
+        var length = Object.keys(data[0].item).length; 
+        this.dataType = data[0].item.length > 1 ? false : true; 
+      },
+      err => console.log(err),
+      ()=> this.loder = false
     )
   }
 
