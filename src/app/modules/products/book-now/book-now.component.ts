@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-book-now',
@@ -8,8 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BookNowComponent implements OnInit {
 
-  constructor(private actroute : ActivatedRoute) { }
+  constructor(private actroute : ActivatedRoute, private proSer:ProductService, private route:Router) { }
+  public details:any;
+  public persion = 1;
 
+    persn = new Book(1)
   ngOnInit() {
 
     this.actroute.queryParams.subscribe(
@@ -20,11 +24,32 @@ export class BookNowComponent implements OnInit {
           params['cost'] = arr;
           params['title'] = param.title;
           params['avaible'] = param.avaible;
-         
-        }
-        console.log(params);
+        } 
+        this.details = params;
       }
+    )
+    
+  }
+
+  quote(val){
+    let usr = localStorage.getItem('user');
+    let id = JSON.parse(usr).id;
+    val['record'] = this.actroute.snapshot.params.id;
+    val['contact'] = id;
+     
+    this.proSer.createQuote(val).subscribe(
+      data=>{
+        console.log(data)
+        this.route.navigate(['/quotes/detail/'+data[0].item]);
+      },
+      err =>console.log(err)
     )
   }
 
+}
+
+export class Book {
+  constructor(
+    public person:any, 
+  ){}
 }

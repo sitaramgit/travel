@@ -11,7 +11,7 @@ export class QuotesService {
   constructor(private http:HttpClient, private useSer:UserService) { }
 
   getQuoteList(){
-    let body = {  module : "Quotes",view : "list" , id:this.useSer.currentUser.id};
+    let body = {  module : "Quotes",view : "list" , id:this.useSer.currentUserDetails().id};
     return this.http.post(this.useSer.serverUrl,body); 
   }
 

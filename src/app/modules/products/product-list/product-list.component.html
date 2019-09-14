@@ -17,10 +17,12 @@
                     </div>
                     <div class="card-body">
                     <a routerLink="detail/{{product.record}}" class="btn btn-outline-primary">Read More</a>
+                    <button type="button"
+                     class="btn btn-info pull-right"><small>Form</small> {{product.unit_price | number: '1.0-0'}}</button>
                      
-                      <a routerLink="book-now/{{product.record}}"
+                      <!-- <a routerLink="book-now/{{product.record}}" disabled
                       [queryParams]="{ title: product.name, avaible: product.qtyinstock | number: '1.0-0' }"
-                       class="btn btn-info pull-right"><small>Form</small> {{product.unit_price | number: '1.0-0'}}</a>
+                       class="btn btn-info pull-right"><small>Form</small> {{product.unit_price | number: '1.0-0'}}</a> -->
                   </div>
                 </div>
             </div>   

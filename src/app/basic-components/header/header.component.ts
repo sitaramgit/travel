@@ -23,6 +23,8 @@ export class HeaderComponent implements OnInit {
   logoutUser(){
     this.share.changeUserStatus(false);
     localStorage.removeItem('user');
+    localStorage.clear();
+    location.reload();
     this.route.navigate(["/login"]);
     return false;
   }

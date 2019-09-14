@@ -29,22 +29,5 @@ export class QuotesListComponent implements OnInit {
     )
   }
 
-  quoteUnique(data){
-   
-    const result = [];
-    const map = new Map();
-    for (const item of data) {
-        if(!map.has(item.id)){
-            map.set(item.id, true);    // set any value to Map
-            result.push({
-                id: item.id,
-                createdtime: item.createdtime,
-                subject: item.subject,
-                quantity: item.quantity,
-                hdnSubTotal: item.hdnGrandTotal,
-            });
-        }
-    }
-    this.quotes = result;
-}
+  
 }
