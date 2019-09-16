@@ -78,7 +78,30 @@
     <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
       data-parent="#accordionEx">
       <div class="card-body">
-       <input type="checkbox" name="productid" /> Product 1
+
+       <div class="row" *ngIf="products">
+          <div class="col-lg-3 col-md-6" *ngFor="let product of products">
+              <div class="card">
+                  <div class="card-body">
+                      <div class="stat-widget-four">
+                          <div class="stat-icon dib">
+                              <input type="checkbox" mat-checkbox class="products_ids"  value="{{product.record}}"> 
+                            
+                          </div>
+                          <div class="stat-content">
+                              <div class="text-left dib">
+                                  <small>{{product.name}}</small>
+                                  <h5 class="stat-text">Price : {{product.unit_price}}</h5>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+       </div>
+
+       <button type="button" (click)="confirmBooking()" class="btn btn-primary">Confirm Booking</button>
+
       </div>
     </div>
 
