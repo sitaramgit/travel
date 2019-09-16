@@ -47,7 +47,10 @@
           <p><i class="fa fa-angle-double-right"></i> P.O. Box : {{profile.mailingpobox}}</p>
           <footer class="twt-footer"> 
               <span class="pull-left">
-                  <a routerLink="edit/{{profile.record}}" class="btn btn-success">Edit</a>
+                  <a routerLink="edit/{{profile.record}}" class="btn btn-success">Edit</a> &nbsp; &nbsp;
+                  <button type="button" mat-raised-button data-toggle="modal" data-target="#exampleModal">
+                        change Password
+                      </button>
               </span>
           </footer>
         </div>
@@ -55,3 +58,56 @@
      </div>
   </div>
 </div>
+
+
+<!-- Button trigger modal -->
+
+      
+      <!-- Modal -->
+      <div  *ngIf="!loder" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form #chngPass="ngForm" class="example-form" (ngSubmit)="chngPass.valid && changePass(chngPass.value)" novalidate>
+                  
+                
+                <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Old Password</mat-label>
+                    <input type="password" name="old_password" ngModel class="example-full-width" required  matInput>
+                </mat-form-field>
+         
+                 
+            
+                <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>New Password</mat-label>
+                        <input type="password" #pass="ngModel" name="new_password" ngModel class="example-full-width" required matInput>
+                </mat-form-field>
+           
+
+            
+                <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Conform Password</mat-label>
+                        <input type="password" #cnfpass="ngModel" name="Confirm_password" ngModel class="example-full-width" required matInput>
+                        <mat-hint *ngIf="pass.value != cnfpass.value && cnfpass.dirty" class="text-danger">Password and Confirm Password should be match</mat-hint>
+                
+                </mat-form-field>
+                <input type="hidden" name="module" ngModel="user" >
+                <input type="hidden" name="view" ngModel="change_password" >
+                <input type="hidden" name="record" ngModel="{{profile.record}}" >
+                <input type="hidden" name="username" ngModel="{{profile.email}}" >
+                <button type="submit" [disabled]="!chngPass.valid || pass.value != cnfpass.value" class="btn btn-primary btn-block">Save changes</button>
+   
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button> 
+            </div>
+          </div>
+        </div>
+      </div>

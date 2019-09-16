@@ -13,11 +13,13 @@ export class LoginComponent implements OnInit {
   constructor(private share:SharedService, private actroute:ActivatedRoute, private route:Router, private usrSer:UserService) { }
     public errMsg:any = false;
     public regStatus:any = false;
+    public for_pass:any = false;
   ngOnInit() {
     this.actroute.queryParams.subscribe(
       (param) =>{ 
         if(param.length !=0){
           this.regStatus = param.status != null ? true : false;
+          this.for_pass = param.forgot != null ? true : false;
         }
       }
     )

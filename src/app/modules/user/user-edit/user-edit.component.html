@@ -6,8 +6,7 @@
   <div class="card-header">
       <strong class="card-title">Edit - Profile</strong>
   </div>
-  <div class="card-body">
-      {{profile|json}}
+  <div class="card-body"> 
       <div class="login-form">
           <form #regForm="ngForm" (ngSubmit)="regForm.valid && editUser(regForm.value)" novalidate>
 
@@ -52,7 +51,7 @@
                <input type="hidden" name="record" [ngModel]="profile.record">
                <input type="hidden" name="module" ngModel="user">
                <input type="hidden" name="view" ngModel="update">
-              <button type="submit" [disabled]="!regForm.valid" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+              <button type="submit" [disabled]="!regForm.valid" class="btn btn-primary btn-flat m-b-30 m-t-30">Update</button>
               
                
           </form>
