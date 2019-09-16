@@ -58,12 +58,13 @@
                         <div class="card-body">
                             <table class="table">
                                 <thead>
-                                    <tr>
+                                    <tr class="thead-light">
                                       <th scope="col">#</th>
                                       <th scope="col">Tour</th>
                                       <th scope="col">Price</th>
                                       <th scope="col">Persons</th>
-                                      <th scope="col">Total</th> 
+                                      <th scope="col">Total</th>
+                                      <th scope="col">Actions</th> 
                                   </tr>
                               </thead>
                               <tbody>
@@ -73,8 +74,17 @@
                                     <td>{{product.listPrice}}</td>
                                     <td>{{product.qty}}</td>
                                     <td>{{product.netPrice}}</td>
+                                    <td><i class="fa fa-edit" alt="edit"></i>&nbsp;&nbsp;
+                                        <i class="fa fa-trash" alt="delete"></i>
+                                    </td>
                                 </tr>
-                                
+                                <tr class="thead-light">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class=" pull-right "><label class="badge badge-success">Grand Total</label></td>
+                                    <td><b><u>{{finalcal.grandTotal}}</u></b></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

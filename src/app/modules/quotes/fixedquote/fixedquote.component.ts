@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class FixedquoteComponent implements OnInit {
 
   constructor() { }
-
+  public tog=true;
   ngOnInit() {
+  }
+  toggle(){
+    this.tog = !this.tog;
   }
 
 }

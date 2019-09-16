@@ -2,18 +2,15 @@
     <div class="loader">Loading...</div>
    </div>
    <div class="row">
-	<div class="col-md-4">
+	<div class="col-md-2">
 		
-		<a routerLink="fixed-quote" class="btn btn-outline-primary">Fixed Package</a>
+		<a routerLink="fixed-quote" class="btn btn-primary">Fixed Package</a>
 	</div>
-	<div class="col-md-4">
-		
-		<a routerLink="detail/{{quotes.record}}" class="btn btn-outline-primary">Custom Package</a>
+	<div class="col-md-2">		
+		<a routerLink="custom-quote" class="btn btn-primary">Custom Package</a>
 	</div>
    </div>
-
-
-   <div class="row" *ngIf="!quotes" style=" margin-top: 100px;margin-bottom: 200px;">
+    <div class="row" *ngIf="!quotes" style=" margin-top: 100px;margin-bottom: 200px;">
        <div class="col-md-3"></div> 
         <div class="col-md-6"> 
             <div class="card">
