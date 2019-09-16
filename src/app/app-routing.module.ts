@@ -14,6 +14,7 @@ const routes: Routes = [
   {path : "register", component : RegisterComponent, canActivate:[LoginUserGuard]},
   {path : "forgot-password", component : ForgotPasswordComponent, canActivate:[LoginUserGuard]},
   {path : "quotes", loadChildren :"./modules/quotes/quotes.module#QuotesModule", canActivate:[AuthGuard] },
+  {path : "invoices", loadChildren :"./modules/invoices/invoices.module#InvoicesModule", canActivate:[AuthGuard] },
   {path : "products", loadChildren :"./modules/products/products.module#ProductsModule", canActivate:[AuthGuard] },
   {path : "user", loadChildren :"./modules/user/user.module#UserModule", canActivate:[AuthGuard] },
   {path : "**", component : PageNotFoundComponent, canActivate:[AuthGuard]}
