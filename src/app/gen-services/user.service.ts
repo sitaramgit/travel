@@ -26,4 +26,9 @@ export class UserService {
       let usr = localStorage.getItem('user');
       return JSON.parse(usr);
     }
+    getUserDetails():Observable<any>{
+    
+      let params={module:"user",view:"details", record:this.currentUserDetails().id};
+      return this.http.post(this.serverUrl,params);
+    }
 }

@@ -20,9 +20,11 @@ export class QuotesListComponent implements OnInit {
   quoteList(){
     this.quoSer.getQuoteList().subscribe(
       data => {
+        this.loder = false;
         this.quotes = data[0].item; 
         var length = Object.keys(data[0].item).length; 
         this.dataType = data[0].item.length > 1 ? false : true; 
+        this.loder = false;
       },
       err => console.log(err),
       ()=> this.loder = false

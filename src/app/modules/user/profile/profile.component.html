@@ -1,0 +1,57 @@
+<div *ngIf="loder" style="text-align: center; margin-top: 200px;margin-bottom: 200px;">
+    <div class="loader">Loading...</div>
+   </div>
+ 
+<div class="card" *ngIf="!loder">
+  <div class="card-header">
+      <strong class="card-title">Profile</strong>
+  </div>
+  <div class="card-body">
+
+ 
+
+     <div class="row">
+        <div class="col-md-6">
+            <section class="card">
+                <div class="twt-feed bg-dark">
+                    <div class="corner-ribon black-ribon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="fa fa-user wtt-mark"></div>
+
+                    <div class="media">
+                        <a href="#">
+                            <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="assets/images/user.png">
+                        </a>
+                        <div class="media-body">
+                            <h2 class="text-white display-6">{{profile.firstname}} {{profile.lastname}} </h2>
+                            <p class="text-light">{{profile.mobile}}</p>
+                        </div>
+                    </div>
+ 
+                </div> 
+                <div class="twt-write col-sm-12">
+                   <p>Email : {{profile.email}}</p>
+                   <p>Dob : {{profile.birthday}}</p>
+                   <p>Created At : {{profile.createdtime}}</p>
+                </div>
+                
+            </section>
+        </div>
+
+        <div class="col-md-6">
+          <h4><i class="fa fa-map-marker"></i> Address</h4>
+          <br>
+          <p><i class="fa fa-angle-double-right"></i> City : {{profile.mailingcity}}</p>
+          <p><i class="fa fa-angle-double-right"></i> Country : {{profile.mailingcountry}}</p>
+          <p><i class="fa fa-angle-double-right"></i> P.O. Box : {{profile.mailingpobox}}</p>
+          <footer class="twt-footer"> 
+              <span class="pull-left">
+                  <a routerLink="edit/{{profile.record}}" class="btn btn-success">Edit</a>
+              </span>
+          </footer>
+        </div>
+
+     </div>
+  </div>
+</div>
