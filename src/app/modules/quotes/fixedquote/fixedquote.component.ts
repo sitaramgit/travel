@@ -34,11 +34,13 @@ export class FixedquoteComponent implements OnInit {
 
   confirmBooking(){
     let qout:any =  document.getElementsByClassName('products_ids');
-     
+    let arr = [];
     for(let i=0; i<qout.length; i++){
       if(qout[i].checked){
-        console.log(qout[i].value);
+        
+        arr.push(qout[i].value);
       }
     }
+    console.log(arr);
   }
 }
