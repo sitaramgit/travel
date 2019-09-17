@@ -14,11 +14,11 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr><!--*ngFor="let inv of invoices"-->
-                      <th scope="row">1</th>
-                      <td>Sample invoice</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                  <tr ngFor="let inv of invoices">
+                      <td scope="row">1</td>
+                      <td>{{inv.record}}</td>
+                      <td></td>
+                      <td></td>
                   </tr>
               </tbody>
           </table>
