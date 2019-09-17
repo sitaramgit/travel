@@ -17,6 +17,7 @@ const routes: Routes = [
   {path : "invoices", loadChildren :"./modules/invoices/invoices.module#InvoicesModule", canActivate:[AuthGuard] },
   {path : "products", loadChildren :"./modules/products/products.module#ProductsModule", canActivate:[AuthGuard] },
   {path : "user", loadChildren :"./modules/user/user.module#UserModule", canActivate:[AuthGuard] },
+  {path : "support", loadChildren :"./modules/support/support.module#SupportModule", canActivate:[AuthGuard] },
   {path : "**", component : PageNotFoundComponent, canActivate:[AuthGuard]}
 ];
 
