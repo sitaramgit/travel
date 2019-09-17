@@ -1,3 +1,41 @@
-<p>
-  support-detail works!
-</p>
+  
+<div *ngIf="loder" style="text-align: center; margin-top: 200px;margin-bottom: 200px;">
+    <div class="loader">Loading...</div>
+   </div>
+
+<div class="animated fadeIn"  >
+
+    <div class="ui-typography">
+        <div class="row">
+             
+             
+
+            <div class="col-md-12"> 
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title" v-if="headerText">
+                            <i class="fa fa-money"></i>
+                          Ticket Details</strong>
+                    </div>
+  
+                    <div class="card-body"> 
+                        <h3>{{details.ticket_title}}</h3>  
+                        <br>
+                          <p><b>Ticket no : </b>{{details.ticket_no}}</p>
+                          <p><b>Category : </b>{{details.ticketcategories}}</p>
+                          <p><b>Priority : </b>{{details.ticketpriorities}}</p>
+                          <p><b>Serverity : </b>{{details.ticketseverities}}</p>
+                          <p><b>Description : </b>{{details.description}}</p>
+                          <p><b>Created At : </b>{{details.createdtime}}</p>
+                       
+                    </div>
+                </div> 
+            </div>
+
+
+            </div>
+            </div>
+  
+              <br><br><br><br><br><br>
+  
+              </div><!-- .animated -->

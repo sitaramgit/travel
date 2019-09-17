@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../products/product.service';
+import { SupportService } from '../support.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-support-edit',
@@ -8,7 +10,7 @@ import { ProductService } from '../../products/product.service';
 })
 export class SupportEditComponent implements OnInit {
 
-  constructor(private proSer:ProductService) { }
+  constructor(private proSer:ProductService,private supSer:SupportService, private router:Router) { }
   options = ['kerala','abc','normal'];
   products:any = false;
   loder = true;
@@ -31,6 +33,14 @@ export class SupportEditComponent implements OnInit {
 
   ticketForm(val){
     console.log(val);
+    this.supSer.createTicket(val).subscribe(
+      (data) =>{
+        console.log(data);
+        this.router.navigate(['/support']);
+      } ,
+      err=>console.log(err)
+    )
+
   }
 
 

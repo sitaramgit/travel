@@ -101,13 +101,12 @@
                                 <textarea name="description" matInput ngModel  ></textarea>
                               </mat-form-field>
                           </div>
-              
+             <div class="form-group col-md-12 ">
             <input type="hidden" name="module" ngModel="ticket" >
-            <input type="hidden" name="view" ngModel="create" >
-            <input type="hidden" name="record" ngModel=" " >
-            <input type="hidden" name="username" ngModel=" " >
+            <input type="hidden" name="view" ngModel="create" > 
             <button type="submit" [disabled]="!ticket.valid " class="btn btn-primary btn-block">Create</button>
              </div>
+          </div>
           </form>
     
 

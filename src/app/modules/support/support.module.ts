@@ -8,12 +8,18 @@ import { SupportDetailComponent } from './support-detail/support-detail.componen
 import { SupportListComponent } from './support-list/support-list.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
-  declarations: [SupportComponent, SupportEditComponent, SupportDetailComponent, SupportListComponent],
+  declarations: [SupportComponent,
+              SupportEditComponent,
+                SupportDetailComponent, 
+                SupportListComponent],
   imports: [
     CommonModule,
     FormsModule,
+    HttpClientModule,
     SharedModule,
     SupportRoutingModule,
   ],

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/gen-services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-edit',
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class UserEditComponent implements OnInit {
   public loder:boolean = true;
   public profile:any;
-  constructor(private usrSer:UserService) { }
+  constructor(private usrSer:UserService, private router:Router) { }
 
   ngOnInit() {
     this.userDetails();
@@ -24,6 +24,13 @@ export class UserEditComponent implements OnInit {
     )
   }
   editUser(val){
-    console.log(val)
+   this.usrSer.updateUser(val).subscribe(
+     (data)=>{
+       console.log(data);
+      this.router.navigate(['/user']);
+    },
+    (err)=>{console.log(err)}
+
+   );
   }
 }
