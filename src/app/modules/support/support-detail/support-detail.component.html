@@ -6,11 +6,11 @@
 <div class="animated fadeIn"  >
 
     <div class="ui-typography">
-        <div class="row">
+       
              
              
 
-            <div class="col-md-12"> 
+            
                 <div class="card">
                     <div class="card-header">
                         <strong class="card-title" v-if="headerText">
@@ -19,22 +19,47 @@
                     </div>
   
                     <div class="card-body"> 
+                    <div class="row">
+                        <div class="col-md-4"> 
                         <h3>{{details.ticket_title}}</h3>  
                         <br>
                           <p><b>Ticket no : </b>{{details.ticket_no}}</p>
+                          <p><b>Status : </b>{{status}}</p>
+                          
                           <p><b>Category : </b>{{details.ticketcategories}}</p>
                           <p><b>Priority : </b>{{details.ticketpriorities}}</p>
                           <p><b>Serverity : </b>{{details.ticketseverities}}</p>
                           <p><b>Description : </b>{{details.description}}</p>
                           <p><b>Created At : </b>{{details.createdtime}}</p>
-                          <a routerLink="/support/edit" [queryParams]="{ id: details.ticketid}"
-                           class="btn btn-info ">Edit/a>
+                         
+                          <a routerLink="/support/edit/" [queryParams]="{id: ticket_id, status:status}"
+                           class="btn btn-info ">Edit </a>
+                        </div>
+
+                        <div class="col-md-8"> 
+                         
+                        <mat-tab-group>
+                                <mat-tab label="Updates"> <br>
+                                    Administrator created 2019-09-18 10:16:25 
+                                </mat-tab>
+                                <mat-tab label="Comments">
+                                        <br>
+                                        <app-comments [ticket_data]="ticket_id"></app-comments> 
+                                </mat-tab>
+                                <mat-tab label="Documments"> <br>
+                                    No more records 
+                                </mat-tab>
+                        </mat-tab-group>
+                        </div>
+
+
+                    </div>
                     </div>
                 </div> 
-            </div>
+           
 
 
-            </div>
+            
             </div>
   
               <br><br><br><br><br><br>

@@ -9,13 +9,14 @@ import { SupportListComponent } from './support-list/support-list.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CommentsComponent } from './comments/comments.component';
 
 
 @NgModule({
   declarations: [SupportComponent,
               SupportEditComponent,
                 SupportDetailComponent, 
-                SupportListComponent],
+                SupportListComponent, CommentsComponent],
   imports: [
     CommonModule,
     FormsModule,

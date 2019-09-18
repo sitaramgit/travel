@@ -40,7 +40,7 @@
                     <p class="card-text"><b>Priority : </b> {{ticket.priority}}</p>
                     <p class="card-text"><b>Severity : </b> {{ticket.severity}}</p>
                     <p class="card-text"><b>Date : </b> {{ticket.createdtime}}</p>
-                    <a class="btn btn-success " routerLink="/support/detail/{{ticket.ticketid}}">Read More</a>
+                    <a class="btn btn-success " routerLink="/support/detail/{{ticket.ticketid}}" [queryParams]="{status: ticket.status}">Read More</a>
                 </div>
             </div>
         </div>

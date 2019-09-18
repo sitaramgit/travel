@@ -12,7 +12,10 @@ export class SupportDetailComponent implements OnInit {
   constructor(private supSer:SupportService, private actRoute:ActivatedRoute) { }
   loder = true;
   details:any = false;
+  ticket_id:any;
+  status:any;
   ngOnInit() {
+    this.status = this.actRoute.snapshot.queryParamMap.get('status');
      this.actRoute.params.subscribe(
       data => this.ticketDetails(data.id)
     ) ;
@@ -20,6 +23,7 @@ export class SupportDetailComponent implements OnInit {
   }
 
   ticketDetails(id){
+    this.ticket_id = id;
     this.supSer.getTicketDetail(id).subscribe(
       data =>this.details = data[0].HelpDesk,
       err => console.log(err),

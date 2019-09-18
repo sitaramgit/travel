@@ -1,0 +1,21 @@
+
+<form #cmtFrm="ngForm" (ngSubmit)="cmtFrm.valid && addCmt()">
+<mat-form-field appearance="outline" class="example-full-width">
+    <mat-label>Add Your Comment Here...</mat-label>
+    <textarea name="comments" matInput [(ngModel)]="commentData" required></textarea>
+  </mat-form-field>
+
+  <button type="submit" [disabled]="!cmtFrm.valid"  class="btn btn-primary ">Submit</button>
+</form>
+<br>
+<ul class="list-group">
+    <li *ngFor="let comment of comts" class="list-group-item">
+     
+      {{comment.comments}} &nbsp; &nbsp;
+      
+      <span class="badge badge-primary badge-pill">{{comment.createdtime}}</span>
+      <p>{{comment.owner}}</p>
+    </li>
+     
+  </ul>
+
