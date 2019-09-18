@@ -27,7 +27,8 @@
                           <p><b>Serverity : </b>{{details.ticketseverities}}</p>
                           <p><b>Description : </b>{{details.description}}</p>
                           <p><b>Created At : </b>{{details.createdtime}}</p>
-                       
+                          <a routerLink="/support/edit" [queryParams]="{ id: details.ticketid}"
+                           class="btn btn-info ">Edit/a>
                     </div>
                 </div> 
             </div>

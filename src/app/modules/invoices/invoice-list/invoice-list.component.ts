@@ -21,11 +21,14 @@ export class InvoiceListComponent implements OnInit {
   invoiceList(){
     this.quoSer.getInvoiceList().subscribe(
       data => {
+         
+        if(data!=null){
         this.loder = false;
         this.invoices = data[0].item; 
         var length = Object.keys(data[0].item).length; 
         this.dataType = data[0].item.length > 1 ? false : true; 
         this.loder = false;
+       }
       },
       err => console.log(err),
       ()=> this.loder = false

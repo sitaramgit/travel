@@ -11,7 +11,7 @@ export class SupportDetailComponent implements OnInit {
 
   constructor(private supSer:SupportService, private actRoute:ActivatedRoute) { }
   loder = true;
-  details = false;
+  details:any = false;
   ngOnInit() {
      this.actRoute.params.subscribe(
       data => this.ticketDetails(data.id)
