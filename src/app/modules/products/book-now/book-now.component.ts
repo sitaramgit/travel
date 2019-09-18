@@ -39,7 +39,7 @@ export class BookNowComponent implements OnInit {
      
     this.proSer.createQuote(val).subscribe(
       data=>{
-        console.log(data)
+        console.log(data);
         this.route.navigate(['/quotes/detail/'+data[0].item]);
       },
       err =>console.log(err)

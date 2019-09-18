@@ -24,4 +24,8 @@ export class ProductService {
     let data ={module:'Quotes', view:'create', record : param.record, qty:param.persons, contact:param.contact};
     return this.http.post(this.usrSer.serverUrl,data); 
   }
+   createMuipleProductQuote(param):Observable<any>{
+    let data ={module:'Quotes', view:'create',products : param.products,date_travel : param.date_travel, record : param.record, qty:param.persons, contact:param.contact};
+    return this.http.post(this.usrSer.serverUrl,data); 
+  }
 }
