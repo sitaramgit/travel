@@ -12,8 +12,10 @@
     <li *ngFor="let comment of comts" class="list-group-item">
      
       {{comment.comments}} &nbsp; &nbsp;
-      
+      <!-- <a *ngIf="comment.file_name!=''" download href="{{usSer.path}}{{comment.file_name}}" class="fa fa-download"  ></a> &nbsp; &nbsp; -->
+     
       <span class="badge badge-primary badge-pill">{{comment.createdtime}}</span>
+      <p  *ngIf="comment.file_name!=''"> <img src="{{usSer.path}}{{comment.file_name}}" alt="{{comment.filename}}" style="height: 50px;"></p>
       <p>{{comment.owner}}</p>
     </li>
      

@@ -1,6 +1,6 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import { SupportService } from '../support.service';
-
+import { UserService } from 'src/app/gen-services/user.service';
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
@@ -8,7 +8,7 @@ import { SupportService } from '../support.service';
 })
 export class CommentsComponent implements OnInit {
 
-  constructor(private supSer:SupportService) { }
+  constructor(private supSer:SupportService, public usSer:UserService ) { }
   @Input('ticket_data') data = null;
   comts:any = false;
   commentData:any = null;
