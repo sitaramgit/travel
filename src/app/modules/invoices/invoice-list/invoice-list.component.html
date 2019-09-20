@@ -10,24 +10,31 @@
           <strong class="card-title">Invoice List</strong>
       </div>
       <div class="card-body">
-          <table class="table table-striped" *ngIf="dataType">
+          <table class="table table-striped">
               <thead>
                   <tr>
                       <th scope="col">#</th>
                       <th scope="col">Invoice Name</th>
                       <th scope="col">Date</th>
                       <th scope="col">Bill City</th>
+                      <th></th>
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td scope="row">1</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                  <tr  *ngFor="let inv of invoices; let i = index">
+                      <td scope="row">{{i+1}}</td>
+                      <td>{{inv.subject}} </td>
+                      <td>{{inv.invoicedate}}</td>
+                      <td>{{inv.bill_city}}</td>
+                      <td><a routerLink="detail/{{inv.record}}" class="btn btn-outline-primary">
+                       Details
+                    </a></td>
                   </tr>
               </tbody>
           </table>
       </div>
+
+      
+
   </div>
 </div>

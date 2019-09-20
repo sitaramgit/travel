@@ -1,0 +1,99 @@
+
+<div *ngIf="loder" style="text-align: center; margin-top: 200px;margin-bottom: 200px;">
+  <div class="loader">Loading...</div>
+</div>
+
+
+
+<div class="animated fadeIn" *ngIf="!loder">
+
+<div class="ui-typography">
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title" v-if="headerText">
+                        <i class="fa fa-money"></i>
+                      Invoice Details</strong>
+                </div>
+
+                <div class="card-body">
+
+                    <h4 class="pb-2 display-5"><strong>{{invoice.subject}}</strong></h4>
+                  
+
+                  <div class="row">
+                      <div class="col-md-6">   
+                            <span><i class="fa fa-inr"></i> {{finalcal.preTaxTotal}}</span><br>
+                            <span class="badge badge-primary"><i class="fa fa-tachometer"></i> {{invoice.invoicestatus}}</span><br> 
+                            <span><i class="fa fa-list-alt"></i> {{invoice.terms_conditions}}</span><br>
+                            <span><i class="fa fa-clock-o"></i> {{invoice.createdtime}}</span><br>
+
+                    </div>
+                    <div class="col-md-6">
+                          <h4> <i class="fa fa-map-marker"></i> Address</h4>
+                          <address class="mt-3"> 
+                              {{invoice.bill_street}}<br>
+                              {{invoice.bill_city}}<br>
+                              {{invoice.bill_state}}<br>
+                              {{invoice.bill_country}}<br> 
+                        </address>              
+                    </div>                   
+                  </div>
+                  <br>
+                  
+                  <div class="clearfix"></div>
+ 
+
+                 
+                      <div class="card-header">
+                          <strong class="card-title">Packages</strong>
+                      </div>
+                      <div class="card-body">
+                          <table class="table">
+                              <thead>
+                                  <tr class="thead-light">
+                                    <th scope="col">#</th>
+                                    <th scope="col">Tour</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Persons</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Actions</th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let product of products; index as i">
+                                  <th scope="row">{{i+1}}</th>
+                                  <td>{{product.productName}}</td>
+                                  <td>{{product.listPrice}}</td>
+                                  <td>{{product.qty}}</td>
+                                  <td>{{product.netPrice}}</td>
+                                  <td><i class="fa fa-edit" alt="edit"></i>&nbsp;&nbsp;
+                                      <i class="fa fa-trash" alt="delete"></i>
+                                  </td>
+                              </tr>
+                              <tr class="thead-light">
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td class=" pull-right "><label class="badge badge-success">Grand Total</label></td>
+                                  <td><b><u>{{finalcal.grandTotal}}</u></b></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>        
+                  
+
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+  </div>
+
+
+
+</div><!-- .animated -->
