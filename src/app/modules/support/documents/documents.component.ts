@@ -43,7 +43,7 @@ export class DocumentsComponent implements OnInit {
     if(this.selectedFile!=null){
       const formData = new FormData();
       formData.append('name', this.profileForm.get('name').value);
-      formData.append('profile', this.selectedFile);
+      formData.append('document', this.selectedFile);
       formData.append('ticket_id', this.ticket_data);
       formData.append('contact_id', this.usSer.currentUserDetails().id);
       console.log(formData)
