@@ -30,4 +30,11 @@ export class SupportDetailComponent implements OnInit {
       ()=> this.loder = false
     )
   }
+
+  closeticket(id){
+    this.supSer.changeTicketStatus(id).subscribe(
+      data => this.status = "Closed",
+      err => console.log(err)
+    )
+  }
 }

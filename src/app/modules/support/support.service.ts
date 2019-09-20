@@ -34,8 +34,17 @@ export class SupportService {
     return this.http.post(this.usr.serverUrl,data);
   }
 
+  getUpdateList(tkt):Observable<any>{ 
+    let data ={module:'update', view:'list', tktid:tkt, contactid : this.usr.currentUserDetails().id}
+    return this.http.post(this.usr.serverUrl,data);
+  }
+
   getDocumentsList(tkt):Observable<any>{ 
     let data ={module:'documents', view:'list', tktid:tkt, contactid : this.usr.currentUserDetails().id}
+    return this.http.post(this.usr.serverUrl,data);
+  }
+  changeTicketStatus(tkt):Observable<any>{ 
+    let data ={module:'ticket', view:'changestatus', tktid:tkt, contactid : this.usr.currentUserDetails().id}
     return this.http.post(this.usr.serverUrl,data);
   }
 

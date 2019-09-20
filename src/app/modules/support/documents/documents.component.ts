@@ -49,7 +49,7 @@ export class DocumentsComponent implements OnInit {
       console.log(formData)
       console.log(this.profileForm.value);
     this.http.post(this.usSer.serverUrl,formData).subscribe(
-      data=>console.log(data),
+      data=>this.documentsList(),
       err => console.log(err)
     )
      

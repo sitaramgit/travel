@@ -32,8 +32,9 @@
                           <p><b>Description : </b>{{details.description}}</p>
                           <p><b>Created At : </b>{{details.createdtime}}</p>
                          
-                          <a routerLink="/support/edit/" [queryParams]="{id: ticket_id, status:status}"
-                           class="btn btn-info ">Edit </a>
+                          <!-- <a routerLink="/support/edit/" [queryParams]="{id: ticket_id, status:status}"
+                           class="btn btn-info ">Edit </a> -->
+                           <input *ngIf="status!='Closed'"type="button" value="Close Ticket" (click)="closeticket(ticket_id)" class="btn btn-success ">
                         </div>
 
                         <div class="col-md-8"> 
@@ -41,6 +42,7 @@
                         <mat-tab-group>
                                 <mat-tab label="Updates"> <br>
                                     Administrator created 2019-09-18 10:16:25 
+                                    <app-updates [ticket_id]="ticket_id"></app-updates>
                                 </mat-tab>
                                 <mat-tab label="Comments">
                                         <br>

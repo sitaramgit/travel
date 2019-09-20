@@ -11,13 +11,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommentsComponent } from './comments/comments.component';
 import { DocumentsComponent } from './documents/documents.component';
+import { UpdatesComponent } from './updates/updates.component';
 
 
 @NgModule({
   declarations: [SupportComponent,
               SupportEditComponent,
                 SupportDetailComponent, 
-                SupportListComponent, CommentsComponent, DocumentsComponent],
+                SupportListComponent, CommentsComponent, DocumentsComponent, UpdatesComponent],
   imports: [
     CommonModule,
     FormsModule,
