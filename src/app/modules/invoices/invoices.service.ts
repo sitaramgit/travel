@@ -16,7 +16,7 @@ export class InvoicesService {
   }
 
   getInvoiceDetail(id){
-    let body = {  module : "Invoices",view : "detail", record : id };
+    let body = {  module : "Invoices",view : "detail", record : id, contactid:this.useSer.currentUserDetails().id };
     return this.http.post(this.useSer.serverUrl,body); 
   }
 

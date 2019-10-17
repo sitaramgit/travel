@@ -16,6 +16,7 @@ export class SharedService {
     this.userLogged.next(data);
   }
 
+  
 
   loggedIn(){
     let user = localStorage.getItem('user');

@@ -25,10 +25,16 @@ export class InvoiceDetailComponent implements OnInit {
     this.record = id;
     this.quoSer.getInvoiceDetail(id).subscribe(
       data=>{
-        console.log(data)
-        // this.invoice = data[0].Invoices;
-        // this.products = data[0].Invoices.Products.pro;
-        // this.finalcal = data[0].Invoices.Products.finalcal;
+        // console.log(data)
+        let inv = data[0].Invoice 
+        let result = []; 
+        
+          for (var [key, value] of inv) {
+            result.push({ key, value });
+          } 
+        this.invoice = inv;
+        this.products = inv.Products.pro;
+        this.finalcal = inv.Products.finalcal;
      }, 
       err => console.log(err),
       ()=>this.loder = false
