@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
         this.navigateUser(this.user);
       }
     );
-
+    window.scrollTo(0, 0);
   }
 
   navigateUser(user){

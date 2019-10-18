@@ -19,6 +19,7 @@ export class SupportDetailComponent implements OnInit {
      this.actRoute.params.subscribe(
       data => this.ticketDetails(data.id)
     ) ;
+    window.scrollTo(0, 0);
     
   }
 
